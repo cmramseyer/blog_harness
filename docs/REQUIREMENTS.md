@@ -62,7 +62,7 @@ Acceptance criteria:
 
 ## 4.1 Crear seeds de users
 
-Status: `todo`
+Status: `in_progress`
 
 Acceptance criteria:
 
