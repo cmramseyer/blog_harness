@@ -14,7 +14,9 @@ Acceptance criteria:
 
 ## 2. Configurar verificaciones
 
-Status: `todo`
+Status: `blocked`
+
+Blocked reason: `bin/commit-and-push` stages unrelated workspace changes with `git add -A`.
 
 Como desarrollador, quiero ejecutar una unica verificacion local antes de desplegar.
 

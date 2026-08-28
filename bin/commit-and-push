@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+commit_message="${1:-Implement product requirement}"
+
+echo "== Git status =="
+git status --short
+
+echo "== Stage changes =="
+git add -A
+
+if git diff --cached --quiet; then
+  echo "No changes to commit."
+else
+  echo "== Commit =="
+  git commit -m "$commit_message"
+fi
+
+echo "== Push =="
+git push -u origin main
