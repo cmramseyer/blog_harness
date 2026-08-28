@@ -46,7 +46,7 @@ Acceptance criteria:
 
 ## 4. Crear y listar posts
 
-Status: `in_progress`
+Status: `done`
 
 Como usuario autenticado, quiero crear posts y ver el listado para publicar contenido.
 
@@ -59,6 +59,14 @@ Acceptance criteria:
 - Cada post enlaza a su pagina de detalle.
 - No existe funcionalidad para eliminar posts.
 - Hay pruebas para creacion, asociacion y listado.
+
+## 4.1 Crear seeds de users
+
+Status: `todo`
+
+Acceptance criteria:
+
+- Crear dos users via seeds, email: `admin@blog.com`, `user@blog.com`, ambos con password `blog1234`.
 
 ## 5. Ver y editar posts
 
