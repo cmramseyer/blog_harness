@@ -19,7 +19,39 @@ If none exists:
 
 Change `Project status:` to `complete` and stop.
 
-Otherwise:
+Otherwise: Planning phase, then Building phase.
+
+## Planning phase
+After selecting the next requirement:
+1. Read:
+   - AGENTS.md
+   - docs/DESIGN.md
+   - docs/REQUIREMENTS.md
+   - relevant existing application code
+2. Before modifying application code, create:
+   `.harness/plans/PLAN-<REQ-ID>.md`
+   Example:
+   `.harness/plans/PLAN-REQ-001.md`
+3. The plan must contain:
+   # REQ-001 — <title>
+   ## Goal
+   Short description of what must be achieved.
+   ## Relevant existing code
+   Files/components expected to be involved.
+   ## Implementation plan
+   1. ...
+   2. ...
+   3. ...
+   ## Tests
+   Tests that will be added or modified.
+   ## Risks / considerations
+   Relevant migrations, compatibility issues, edge cases, etc.
+4. Keep the plan concise. Do not implement anything until the plan file exists.
+5. After writing the plan, continue immediately with the normal implementation workflow.
+6. Use the plan as guidance, but update it if implementation reveals that the original assumptions were incorrect.
+
+
+## Building phase
 
 1. Set the requirement to `in_progress`.
 2. Understand its acceptance criteria.
