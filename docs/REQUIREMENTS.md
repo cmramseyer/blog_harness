@@ -46,7 +46,7 @@ Acceptance criteria:
 
 ## 4. Crear y listar posts
 
-Status: `todo`
+Status: `in_progress`
 
 Como usuario autenticado, quiero crear posts y ver el listado para publicar contenido.
 
