@@ -70,7 +70,7 @@ Acceptance criteria:
 
 ## 5. Ver y editar posts
 
-Status: `in_progress`
+Status: `done`
 
 Como usuario, quiero ver el detalle de un post y editar mis propios posts.
 
