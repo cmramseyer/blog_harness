@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts, only: %i[ index new create show edit update ]
+  resources :posts, only: %i[ index new create show edit update ] do
+    resources :comments, only: :create
+  end
   root "home#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

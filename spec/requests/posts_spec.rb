@@ -66,4 +66,26 @@ RSpec.describe "Posts" do
     expect(response).to redirect_to(post_path(post))
     expect(post.reload).to have_attributes(title: "My post", content: "Post content")
   end
+
+  it "allows an authenticated user to comment on a post" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+    sign_in user
+
+    expect do
+      post post_comments_path(post), params: { comment: { content: "A comment" } }
+    end.to change(post.comments, :count).by(1)
+
+    expect(response).to redirect_to(post_path(post))
+    expect(post.comments.last).to have_attributes(content: "A comment", user:)
+  end
+
+  it "shows comments and a comment form on a post detail page" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+    post.comments.create!(user:, content: "A comment")
+    sign_in user
+
+    get post_path(post)
+
+    expect(response.body).to include("A comment", "comment[content]")
+  end
 end

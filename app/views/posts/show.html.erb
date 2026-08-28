@@ -6,3 +6,18 @@
 <% if current_user == @post.user %>
   <%= link_to "Edit post", edit_post_path(@post) %>
 <% end %>
+
+<section>
+  <h2>Comments</h2>
+  <% @post.comments.each do |comment| %>
+    <p><%= comment.content %></p>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with model: [@post, Comment.new] do |form| %>
+      <%= form.label :content, "Comment" %>
+      <%= form.textarea :content %>
+      <%= form.submit "Add comment" %>
+    <% end %>
+  <% end %>
+</section>
