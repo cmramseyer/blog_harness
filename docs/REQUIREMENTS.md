@@ -84,7 +84,7 @@ Acceptance criteria:
 
 ## 6. Comentar posts
 
-Status: `in_progress`
+Status: `done`
 
 Como usuario autenticado, quiero comentar un post.
 

@@ -61,9 +61,9 @@ After selecting the next requirement:
 6. Run `bin/verify`.
 7. Fix failures until verification succeeds.
 8. Create a concise descriptive commit message based on the requirement. Prefer this format: `REQ-XXX: <short-description>`.
-9. Run `bin/commit-and-push "<commit-message>"`.
+9. If everything succeeds, change the requirement status to `done` and stage this change.
+10. Run `bin/commit-and-push "<commit-message>"`.
 <!-- 9. Run `bin/smoke-staging`. -->
-10. If everything succeeds, change the requirement status to `done`.
 
 Ignore commented lines.
 
