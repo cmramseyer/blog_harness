@@ -2,7 +2,7 @@
 
 ## 1. Configurar RSpec
 
-Status: `todo`
+Status: `done`
 
 Como desarrollador, quiero usar RSpec para cubrir la aplicacion con pruebas automatizadas.
 
