@@ -29,7 +29,9 @@ Acceptance criteria:
 
 ## 3. Autenticacion de usuarios
 
-Status: `todo`
+Status: `blocked`
+
+Blocked reason: `bin/commit-and-push` stages unrelated workspace changes with `git add -A`.
 
 Como visitante, quiero crear una cuenta e iniciar y cerrar sesion para poder publicar y comentar.
 
