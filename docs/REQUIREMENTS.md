@@ -62,7 +62,7 @@ Acceptance criteria:
 
 ## 4.1 Crear seeds de users
 
-Status: `in_progress`
+Status: `done`
 
 Acceptance criteria:
 
@@ -70,7 +70,7 @@ Acceptance criteria:
 
 ## 5. Ver y editar posts
 
-Status: `todo`
+Status: `in_progress`
 
 Como usuario, quiero ver el detalle de un post y editar mis propios posts.
 

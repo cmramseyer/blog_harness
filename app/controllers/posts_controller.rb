@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[ new create ]
+  before_action :set_post, only: %i[ show edit update ]
+  before_action :authenticate_user!, only: %i[ new create edit update ]
+  before_action :authorize_author!, only: %i[ edit update ]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -19,7 +21,29 @@ class PostsController < ApplicationController
     end
   end
 
+  def show; end
+
+  def edit; end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post, notice: "Post updated."
+    else
+      render :edit, status: :unprocessable_content
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params.expect(:id))
+  end
+
+  def authorize_author!
+    return if @post.user == current_user
+
+    redirect_to @post, alert: "You cannot edit this post."
+  end
 
   def post_params
     params.expect(post: %i[ title content ])

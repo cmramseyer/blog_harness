@@ -1,0 +1,8 @@
+<article>
+  <h1><%= @post.title %></h1>
+  <p><%= @post.content %></p>
+</article>
+
+<% if current_user == @post.user %>
+  <%= link_to "Edit post", edit_post_path(@post) %>
+<% end %>

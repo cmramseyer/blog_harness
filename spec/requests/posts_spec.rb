@@ -29,4 +29,41 @@ RSpec.describe "Posts" do
     expect(response).to have_http_status(:ok)
     expect(response.body).to include(post.title, post.content, post_path(post))
   end
+
+  it "shows a post detail page" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+
+    get post_path(post)
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).to include(post.title, post.content)
+  end
+
+  it "allows the author to edit a post" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+    sign_in user
+
+    get edit_post_path(post)
+    expect(response).to have_http_status(:ok)
+    expect(response.body).to include("post[title]", "post[content]")
+
+    patch post_path(post), params: { post: { title: "Updated post", content: "Updated content" } }
+
+    expect(response).to redirect_to(post_path(post))
+    expect(post.reload).to have_attributes(title: "Updated post", content: "Updated content")
+  end
+
+  it "prevents another user from editing a post" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+    other_user = User.create!(email: "other@example.com", password: "password")
+    sign_in other_user
+
+    get edit_post_path(post)
+    expect(response).to redirect_to(post_path(post))
+
+    patch post_path(post), params: { post: { title: "Updated post", content: "Updated content" } }
+
+    expect(response).to redirect_to(post_path(post))
+    expect(post.reload).to have_attributes(title: "My post", content: "Post content")
+  end
 end
