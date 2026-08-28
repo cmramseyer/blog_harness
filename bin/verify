@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "== Rubocop =="
+bundle exec rubocop
+
+echo "== RSpec =="
+bundle exec rspec
