@@ -132,5 +132,4 @@ Como usuario autenticado, quiero ver el listado de Posts despues de haberme loge
 
 Acceptance criteria:
 
-- `/` redirecciona a `/posts`
-- Luego de la autenticación, el user es redirigido a `/posts`
+- `/` renderiza el listado de posts
