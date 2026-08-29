@@ -114,7 +114,7 @@ Acceptance criteria:
 
 ## 8. Fecha y hora de comentarios
 
-Status: `todo`
+Status: `done`
 
 Como usuario autenticado, quiero ver la fecha y hora de los comentarios.
 

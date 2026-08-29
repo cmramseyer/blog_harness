@@ -81,11 +81,15 @@ RSpec.describe "Posts" do
 
   it "shows comments with their authors and a comment form on a post detail page" do
     post = user.posts.create!(title: "My post", content: "Post content")
-    post.comments.create!(user:, content: "A comment")
+    comment = post.comments.create!(user:, content: "A comment", created_at: Time.zone.local(2026, 8, 28, 14, 30))
     sign_in user
 
     get post_path(post)
 
-    expect(response.body).to include("User #{user.email} comentó", "A comment", "comment[content]")
+    expect(response.body).to include(
+      "#{comment.created_at.strftime('%d/%m/%y %H:%M')} - User #{user.email} comentó",
+      "A comment",
+      "comment[content]"
+    )
   end
 end

@@ -10,7 +10,7 @@
 <section>
   <h2>Comments</h2>
   <% @post.comments.each do |comment| %>
-    <p>User <%= comment.user.email %> comentó</p>
+    <p><%= comment.created_at.strftime("%d/%m/%y %H:%M") %> - User <%= comment.user.email %> comentó</p>
     <p><%= comment.content %></p>
   <% end %>
 
