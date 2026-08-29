@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :posts, only: %i[ index new create show edit update ] do
     resources :comments, only: :create
   end
-  root "home#show"
+  root "posts#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

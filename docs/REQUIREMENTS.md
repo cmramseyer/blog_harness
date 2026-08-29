@@ -126,7 +126,7 @@ Acceptance criteria:
 
 ## 9. Root a Posts
 
-Status: `todo`
+Status: `done`
 
 Como usuario autenticado, quiero ver el listado de Posts despues de haberme logeado (root path /)
 

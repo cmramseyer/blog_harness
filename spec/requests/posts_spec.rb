@@ -30,6 +30,15 @@ RSpec.describe "Posts" do
     expect(response.body).to include(post.title, post.content, post_path(post))
   end
 
+  it "renders the posts listing at the root path" do
+    post = user.posts.create!(title: "My post", content: "Post content")
+
+    get root_path
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).to include(post.title, post.content, post_path(post))
+  end
+
   it "shows a post detail page" do
     post = user.posts.create!(title: "My post", content: "Post content")
 
