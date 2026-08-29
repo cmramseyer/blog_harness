@@ -111,3 +111,15 @@ Acceptance criteria:
 - Se visualiza el email del user arriba de cada comentario.
 - Se usara un prefijo `User <email> comentó`.
 - Usa el mismo estilo visual actual.
+
+## 8. Fecha y hora de comentarios
+
+Status: `todo`
+
+Como usuario autenticado, quiero ver la fecha y hora de los comentarios.
+
+Acceptance criteria:
+
+- Se visualiza la fecha y hora del comentario junto con quien escribió el comentario.
+- Se visuaizara con el siguiente formato `dd/mm/yy HH:MM - User <email> comentó`.
+- Usa el mismo estilo visual actual.
