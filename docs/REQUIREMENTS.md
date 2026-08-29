@@ -1,5 +1,7 @@
 # Requirements
 
+Project status: `complete`
+
 ## 1. Configurar RSpec
 
 Status: `done`
@@ -97,3 +99,15 @@ Acceptance criteria:
 - Al enviar el formulario se crea el comentario y se recarga la pagina.
 - No se usa AJAX ni Stimulus.
 - Hay pruebas para creacion, asociaciones y visualizacion.
+
+## 7. Nombre de usuario en comentarios
+
+Status: `todo`
+
+Como usuario autenticado, quiero ver el email del usuario que ha dejado sus comentarios.
+
+Acceptance criteria:
+
+- Se visualiza el email del user arriba de cada comentario.
+- Se usara un prefijo `User <email> comentó`.
+- Usa el mismo estilo visual actual.
