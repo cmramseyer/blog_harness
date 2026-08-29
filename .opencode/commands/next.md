@@ -76,3 +76,10 @@ Add a short `Blocked reason:` underneath it.
 Do not work on another requirement.
 
 <!-- Never mark a requirement `done` unless verification and deployment succeeded. -->
+
+After `bin/commit-and-push` succeeds:
+
+1. Get the current OpenCode session ID using `session-info`.
+2. Export the session:
+
+   `opencode export <session-id> > .harness/runs/<REQ-ID>-session-<session-id>.json`

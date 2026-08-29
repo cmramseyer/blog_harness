@@ -30,6 +30,9 @@
 
 /public/assets
 
+# Ignore exported harness sessions, but retain the directory.
+/.harness/runs/*
+!/.harness/runs/.keep
+
 # Ignore key files for decrypting credentials and more.
 /config/*.key
-
