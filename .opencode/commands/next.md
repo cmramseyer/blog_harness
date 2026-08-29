@@ -99,11 +99,8 @@ Continue with the normal commit and push workflow.
 17. Export the session:
 
    `opencode export <session-id> > .harness/runs/<REQ-ID>-session-<session-id>.json`
-<!-- 9. Run `bin/smoke-staging`. -->
 
-Ignore commented lines.
-
-If implementation, verification or deployment cannot be completed:
+If implementation, verification or commit-and-push cannot be completed:
 
 Set the requirement to `blocked`.
 
@@ -111,4 +108,3 @@ Add a short `Blocked reason:` underneath it.
 
 Do not work on another requirement.
 
-<!-- Never mark a requirement `done` unless verification and deployment succeeded. -->
