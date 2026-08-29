@@ -79,13 +79,13 @@ RSpec.describe "Posts" do
     expect(post.comments.last).to have_attributes(content: "A comment", user:)
   end
 
-  it "shows comments and a comment form on a post detail page" do
+  it "shows comments with their authors and a comment form on a post detail page" do
     post = user.posts.create!(title: "My post", content: "Post content")
     post.comments.create!(user:, content: "A comment")
     sign_in user
 
     get post_path(post)
 
-    expect(response.body).to include("A comment", "comment[content]")
+    expect(response.body).to include("User #{user.email} comentó", "A comment", "comment[content]")
   end
 end

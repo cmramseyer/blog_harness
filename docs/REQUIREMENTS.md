@@ -102,7 +102,7 @@ Acceptance criteria:
 
 ## 7. Nombre de usuario en comentarios
 
-Status: `todo`
+Status: `in_progress`
 
 Como usuario autenticado, quiero ver el email del usuario que ha dejado sus comentarios.
 

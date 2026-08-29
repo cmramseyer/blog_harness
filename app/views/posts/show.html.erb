@@ -10,6 +10,7 @@
 <section>
   <h2>Comments</h2>
   <% @post.comments.each do |comment| %>
+    <p>User <%= comment.user.email %> comentó</p>
     <p><%= comment.content %></p>
   <% end %>
 
