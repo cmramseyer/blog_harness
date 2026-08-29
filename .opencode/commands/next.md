@@ -61,8 +61,13 @@ After selecting the next requirement:
 6. Run `bin/verify`.
 7. Fix failures until verification succeeds.
 8. Create a concise descriptive commit message based on the requirement. Prefer this format: `REQ-XXX: <short-description>`.
-9. If everything succeeds, change the requirement status to `done` and stage this change.
-10. Run `bin/commit-and-push "<commit-message>"`.
+9. If everything succeeds, change the requirement status to `done`.
+10. Ensure all changes are staged before commiting.
+11. Run `bin/commit-and-push "<commit-message>"`.
+12. Get the current OpenCode session ID using `session-info`.
+13. Export the session:
+
+   `opencode export <session-id> > .harness/runs/<REQ-ID>-session-<session-id>.json`
 <!-- 9. Run `bin/smoke-staging`. -->
 
 Ignore commented lines.
@@ -77,9 +82,3 @@ Do not work on another requirement.
 
 <!-- Never mark a requirement `done` unless verification and deployment succeeded. -->
 
-After `bin/commit-and-push` succeeds:
-
-1. Get the current OpenCode session ID using `session-info`.
-2. Export the session:
-
-   `opencode export <session-id> > .harness/runs/<REQ-ID>-session-<session-id>.json`
