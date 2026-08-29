@@ -121,5 +121,16 @@ Como usuario autenticado, quiero ver la fecha y hora de los comentarios.
 Acceptance criteria:
 
 - Se visualiza la fecha y hora del comentario junto con quien escribió el comentario.
-- Se visuaizara con el siguiente formato `dd/mm/yy HH:MM - User <email> comentó`.
+- Se visualizara con el siguiente formato `dd/mm/yy HH:MM - User <email> comentó`.
 - Usa el mismo estilo visual actual.
+
+## 9. Root a Posts
+
+Status: `todo`
+
+Como usuario autenticado, quiero ver el listado de Posts despues de haberme logeado (root path /)
+
+Acceptance criteria:
+
+- `/` redirecciona a `/posts`
+- Luego de la autenticación, el user es redirigido a `/posts`
