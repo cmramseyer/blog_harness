@@ -4,18 +4,31 @@ Ruby on Rails application.
 
 ## Workflow
 
-Before implementing a product requirement:
+Use the `/next` command to execute one product-requirement iteration. Its
+implementation lives in `.opencode/commands/next.md`.
 
-1. Read `docs/DESIGN.md` and `docs/REQUIREMENTS.md`.
-2. Work on the first requirement marked as `todo`.
-3. Handle only one requirement at a time and mark it `in_progress`.
-4. Make the smallest change that meets its acceptance criteria.
-5. Add or update tests.
-6. Run `bin/verify`.
-7. Deploy to staging with `bin/deploy-staging` and run `bin/smoke-staging`.
-8. Mark the requirement as `done` only after all checks pass.
+For every iteration:
 
-If blocked, mark it as `blocked` and explain why.
+1. Read this file, `docs/DESIGN.md`, and `docs/REQUIREMENTS.md`.
+2. Work only on the first requirement whose status is `todo`.
+3. Before changing application code, create a concise plan at
+   `.harness/plans/PLAN-<REQ-ID>.md`.
+4. Mark the selected requirement as `in_progress` and implement only its
+   acceptance criteria.
+5. Add or update automated tests and run `bin/verify`.
+6. Request an independent review from the `reviewer` subagent before
+   committing or pushing.
+7. Commit and push only when the reviewer returns `VERDICT: APPROVE`.
+8. Export the OpenCode session to `.harness/runs/` after a successful push.
+9. Mark the requirement as `done` only after the complete workflow succeeds.
+
+If planning, implementation, verification, review, commit, or push fails,
+mark the requirement as `blocked`, add a short `Blocked reason:`, and stop.
+When review rejects the work, save the complete review at
+`.harness/reviews/REVIEW-<REQ-ID>.md` before blocking the requirement.
+
+Do not work on more than one requirement in an iteration. If no requirement
+has status `todo`, set `Project status:` to `complete` and stop.
 
 ## Rails
 
@@ -30,6 +43,17 @@ Follow existing Rails conventions.
 
 ## Deployment
 
-Deployments are allowed only to staging.
+This repository has no deployment or smoke-test commands. The harness workflow
+ends after verification, independent review, commit, push, and session export.
+Never add or perform a production deployment without explicit human approval.
 
-Never deploy to production without explicit human approval.
+<!-- CODEGRAPH_START -->
+## CodeGraph
+
+In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
+
+- **MCP tool** (when available): `codegraph_explore` answers most code questions in one call — the relevant symbols' verbatim source plus the call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol in the query to read its current line-numbered source. If it's listed but deferred, load it by name via tool search.
+- **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
+
+If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
+<!-- CODEGRAPH_END -->
